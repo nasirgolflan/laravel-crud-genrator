@@ -1,3 +1,11 @@
+# kr
+            $tables = \Illuminate\Support\Facades\DB::select('SHOW TABLES');
+        foreach($tables as $table) {
+            $tableName = $table->Tables_in_amex;
+            echo "php artisan krlove:generate:model ".ucfirst($tableName)." --table-name=".$tableName."<br>";
+        }
+        
+
 # laravel-crud-genrator
 --Create function IN HomeController.php
 
