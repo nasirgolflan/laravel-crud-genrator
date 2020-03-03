@@ -1,0 +1,54 @@
+<template>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">product Component</div>
+                    <div class="card-body">
+
+<input type="text" v-model="pagenumber" placeholder="Page Number"><br>
+<button v-on:click="doSomething">Click Me!</button>
+<button v-on:click="doSum">Do SUm</button>
+<div>
+{{resultText}}
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+            data() {
+                return {
+                resultText: 'no clicked'
+                }
+            },
+            mounted() {
+            },
+        methods: {
+            doSomething: function() {
+                var pagenumber = this.pagenumber;
+                axios.get('http://api.local/api/product?page='+ pagenumber)
+                .then(res => { 
+                    this.resultText = res.data.data; 
+                    this.pagenumber = '';
+                })
+                .catch(function (error) {
+                this.resultText = 'error'; 
+                });
+            },
+            
+            doSum: function() {
+                this.resultText = 'You clicked DoSum!';
+                axios.get('http://api.local/api/product?page=2').then(res => {
+                       this.resultText = res.data.data;
+                    }).catch(err => {
+                console.log(err)
+                })
+            }
+        }
+    }
+</script>
