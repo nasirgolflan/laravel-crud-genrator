@@ -1,8 +1,10 @@
 # kr
-            $tables = \Illuminate\Support\Facades\DB::select('SHOW TABLES');
+            $tables = \Illuminate\Support\Facades\DB::select('SHOW TABLES from MashreqDB');
         foreach($tables as $table) {
             $tableName = $table->Tables_in_amex;
-            echo "php artisan krlove:generate:model ".ucfirst($tableName)." --table-name=".$tableName."<br>";
+            // echo "php artisan krlove:generate:model ".ucfirst($tableName)." --table-name=".$tableName."<br>";
+            echo "php artisan krlove:generate:model ".ucfirst($tableName)." --output-path=/var/www/html/MYSTUDY/amex/app/Models/Mashreq/ --namespace=App\\\Models\\\Mashreq --connection=MashreqDB --table-name=".$tableName."<br>";
+     
         }
         
 
