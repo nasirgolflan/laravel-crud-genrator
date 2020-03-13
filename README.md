@@ -3,7 +3,8 @@
         foreach($tables as $table) {
             $tableName = $table->Tables_in_amex;
             // echo "php artisan krlove:generate:model ".ucfirst($tableName)." --table-name=".$tableName."<br>";
-            echo "php artisan krlove:generate:model ".ucfirst($tableName)." --output-path=/var/www/html/MYSTUDY/amex/app/Models/Mashreq/ --namespace=App\\\Models\\\Mashreq --connection=MashreqDB --table-name=".$tableName."<br>";
+            echo "php artisan krlove:generate:model ".ucfirst($tableName)." --output-path=".__DIR__."/../../Models/Gcbucket/ --namespace=App\\\Models\\\Gcbucket --connection=gcbucket --table-name=".$tableName."<br>";
+ 
      
         }
         
